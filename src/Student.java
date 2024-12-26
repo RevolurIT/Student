@@ -52,7 +52,7 @@ public class Student {
         return (double) sum / gradeCount;
     }
 
-    public class StudentService {
+    public static class StudentService {
         public Student bestStudent(Student[] students) {
             if (students == null || students.length == 0) return null;
             Student best = students[0];
@@ -69,32 +69,32 @@ public class Student {
         }
     }
 
-
-
     public static void main(String[] args) {
 
-        Student student1 = new Student("John", "Doe");
+        Student student1 = new Student("Никита", "Шарипов");
         student1.addGrade(5);
         student1.addGrade(4);
         student1.addGrade(3);
 
-        Student student2 = new Student("Jane", "Smith");
+        Student student2 = new Student("Максим", "Солодов");
         student2.addGrade(3);
         student2.addGrade(4);
         student2.addGrade(4);
 
-        Student student3 = new Student("Alice", "Johnson");
+        Student student3 = new Student("Андрей", "Максимов");
         student3.addGrade(5);
         student3.addGrade(5);
         student3.addGrade(5);
 
-        System.out.println(student1.getName() + " " + student1.getSurname() +
-                " - Средний балл: " + student1.getAverageGrade());
+        Student[] students = {student1, student2, student3};
 
-        System.out.println(student2.getName() + " " + student2.getSurname() +
-                " - Средний балл: " + student2.getAverageGrade());
+        StudentService studentService = new StudentService();
 
-        System.out.println(student3.getName() + " " + student3.getSurname() +
-                " - Средний балл: " + student3.getAverageGrade());
+        studentService.sortBySurname(students);
+
+        for (Student student : students) {
+            System.out.println(student.getName() + " " + student.getSurname() +
+                    " - Средний балл: " + student.getAverageGrade());
+        }
     }
 }
