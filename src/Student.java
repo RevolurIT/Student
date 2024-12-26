@@ -96,5 +96,12 @@ public class Student {
             System.out.println(student.getName() + " " + student.getSurname() +
                     " - Средний балл: " + student.getAverageGrade());
         }
+
+        Student bestStudent = studentService.bestStudent(students);
+
+        if (bestStudent != null) {
+            System.out.println("Лучший студент: " + bestStudent.getName() + " " + bestStudent.getSurname() +
+                    " - Средний балл: " + bestStudent.getAverageGrade());
+        }
     }
 }
